@@ -1,0 +1,40 @@
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="form-group">
+        <label for="courseName">
+            Course Name : 
+        </label>
+        <input 
+        required
+        minlength="3"
+        type="text" 
+        class="form-control" 
+        id="courseName" 
+        ngModel name="courseName" 
+        >
+        <div class="alert alert-danger" *ngIf="f.form.controls?.['courseName']?.touched && f.form.controls?.['courseName']?.invalid">
+            <div *ngIf="f.form.controls?.['courseName']?.errors?.['required']"> Course Name is required </div>
+            <div *ngIf="f.form.controls?.['courseName']?.errors?.['minlength']"> Course Name should have at least {{f.form.controls?.['courseName']?.errors?.['minlength'].requiredLength}} characters </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">
+            Course Category : 
+        </label>
+        <select required ngModel name="courseCategory" id="courseCategory" class="form-control">
+            <option value=""></option>
+            <option *ngFor="let cat of allCategories" [value]="cat.id">{{cat.category}}</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="f.form.controls?.['courseCategory']?.touched && f.form.controls?.['courseCategory']?.invalid">
+            <div>Category is required</div>
+        </div>
+    </div>
+    <div class="checkbox">
+        <label for="">
+            <input type="checkbox" id="day30_return" ngModel name="day30_return"> 30 days return available
+        </label>
+    </div>
+    <p>{{f.value|json}}</p>
+    <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+</form>
