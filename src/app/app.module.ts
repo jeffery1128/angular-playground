@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { FormarrayComponent } from './formarray/formarray.component';
+import { ChangepwformComponent } from './changepwform/changepwform.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    FormarrayComponent,
+    ChangepwformComponent
   ],
   imports: [
     BrowserModule,

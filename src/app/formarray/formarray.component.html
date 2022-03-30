@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="./formarray.component.css">
+<form >
+    <input type="text" class="form-control" #newTopics (keyup.enter)="addTopics(newTopics)">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let top of (topics.controls)" (click)="removeTopic(top)">
+            {{ top.value }}
+        </li>
+    </ul>
+</form>
