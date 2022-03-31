@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-playground';
+  form_tag = ['Course Form','Sign-up Form','Change Password Form','Form Array'];
+  current_form = 0;
+
+  changepage(newPage:string){
+    this.current_form = this.form_tag.indexOf(newPage);
+  }
 }
