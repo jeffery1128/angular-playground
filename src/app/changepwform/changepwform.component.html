@@ -1,3 +1,47 @@
-<form>
-    
+<form [formGroup]="form" class="form-group">
+    <div>
+        <label for="oldpassword">Old Password</label>
+        <input 
+        type="text" 
+        id="oldpassword" 
+        formControlName="oldpw" 
+        class="form-control">
+        <div class="alert alert-info" *ngIf="oldpw?.pending && oldpw?.touched&&oldpw?.statusChanges">
+            Checking...
+        </div>
+        <div class="alert alert-danger" *ngIf="oldpw?.touched && oldpw?.invalid">
+            <div  *ngIf="oldpw?.errors?.['required']">Old Password is required!</div>
+            <div *ngIf="oldpw?.errors?.['passwordMatchingError']">Old Password does not match.</div>
+        </div>
+    </div>
+    <div>
+        <label for="newpassword">
+            New Password : 
+        </label>
+        <input 
+        type="text" 
+        id="newpassword" 
+        class="form-control"
+        formControlName="newpw">
+        <div *ngIf="newpw?.touched && newpw?.invalid">
+            <div class="alert alert-danger" *ngIf="newpw?.errors?.['required']">New Password is required!</div>
+        </div>
+    </div>
+    <div>
+        <label for="confirmpw">
+            Confirm New Password : 
+        </label>
+        <input 
+        type="text"
+        id="confirmpw"
+        class="form-control"
+        formControlName="confirmpw">
+        <div class="alert alert-danger" *ngIf="confirmpw?.touched && confirmpw?.invalid">
+            <div *ngIf="confirmpw?.errors?.['required']">Confirm Password is required!</div>
+        </div>
+        <div *ngIf="form.invalid && form?.errors?.['confirmpwMatchingError'] && confirmpw?.touched" class="alert alert-danger">New Password does not match!</div>
+    </div>
+    <button class="btn btn-primary" [disabled]="form.invalid" (click)="changepw()"> 
+        Change Password
+    </button>
 </form>
