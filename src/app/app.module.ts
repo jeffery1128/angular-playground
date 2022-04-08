@@ -7,6 +7,9 @@ import { CourseFormComponent } from './course-form/course-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { FormarrayComponent } from './formarray/formarray.component';
 import { ChangepwformComponent } from './changepwform/changepwform.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttptestComponent } from './httptest/httptest.component';
+import { PostService } from './Services/post.service';
 
 @NgModule({
   declarations: [
@@ -14,15 +17,17 @@ import { ChangepwformComponent } from './changepwform/changepwform.component';
     CourseFormComponent,
     SignupFormComponent,
     FormarrayComponent,
-    ChangepwformComponent
+    ChangepwformComponent,
+    HttptestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

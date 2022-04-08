@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  form_tag = ['Course Form','Sign-up Form','Change Password Form','Form Array'];
+  form_tag = ['Course Form','Sign-up Form','Change Password Form','Form Array','Http Test'];
   current_form = 0;
 
   changepage(newPage:string){
