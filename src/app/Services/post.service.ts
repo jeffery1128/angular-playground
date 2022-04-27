@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { NotFoundError, throwError } from 'rxjs';
 import { catchError } from "rxjs/operators";
 
 @Injectable({
@@ -26,7 +26,7 @@ export class PostService {
 
   deleteTitle(id:any){
     return this.http.delete(this.url+id).pipe(
-      catchError()
+      
     )
   }
 

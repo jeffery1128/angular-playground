@@ -10,7 +10,11 @@ import { ChangepwformComponent } from './changepwform/changepwform.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttptestComponent } from './httptest/httptest.component';
 import { PostService } from './Services/post.service';
-
+import { FollowerPageComponent } from './follower-page/follower-page.component';
+import { RouterModule } from '@angular/router';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { GithubprofileComponent } from './githubprofile/githubprofile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,14 +22,29 @@ import { PostService } from './Services/post.service';
     SignupFormComponent,
     FormarrayComponent,
     ChangepwformComponent,
-    HttptestComponent
+    HttptestComponent,
+    FollowerPageComponent,
+    NotFoundComponent,
+    NavbarComponent,
+    GithubprofileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path:'',component:AppComponent},
+      {path:'courseform',component:CourseFormComponent},
+      {path:'changepw',component:ChangepwformComponent},
+      {path:'formarray',component:FormarrayComponent},
+      {path:'httptest',component:HttptestComponent},
+      {path:'followers',component:FollowerPageComponent},
+      {path:'signup',component:SignupFormComponent},
+      {path:'**',component:NotFoundComponent},
+
+    ])
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
